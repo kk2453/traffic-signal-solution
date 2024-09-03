@@ -1,0 +1,21 @@
+.users {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // Make the container take the full height of the viewport
+  width: 100vw;  // Make the container take the full width of the viewport
+  padding: 20px; // Add some padding for inner spacing
+  box-sizing: border-box; // Include padding in the width and height
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    button {
+      padding: 5px;
+      cursor: pointer;
+    }
+  }
+}
