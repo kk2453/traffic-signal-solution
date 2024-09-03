@@ -1,0 +1,256 @@
+@import "../../styles/variables.scss";
+@import "../../styles/responsive.scss";
+
+.home {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  grid-auto-flow: dense;
+  height: 100vh;
+  max-width: 100%; // Ensure the width does not exceed the viewport width
+  margin: 0 auto;  // Center the grid horizontally
+  padding: 20px; // Prevent overflow
+
+  @include xl {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include md {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include sm {
+    grid-auto-rows: minmax(120px, auto);
+  }
+
+  .box {
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid $soft-bg;
+    box-sizing: border-box; // Ensure padding is included in width and height calculations
+  }
+  .box3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  .box1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .box4 {
+    grid-column: span 1;
+    grid-row: span 1;
+
+  }
+
+  .box7 {
+    grid-column: span 2;
+    grid-row: span 1;
+
+    @include md {
+      display: none;
+    }
+  }
+  .box98 {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+  .box98 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .box98 button {
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff5733; /* Vibrant red-orange color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .box98 button:hover {
+    background-color: #ff2e00; /* Slightly darker shade on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .box98 button:active {
+    background-color: #cc2200; /* Darker color on click */
+    transform: translateY(1px); /* Button presses down */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .eme{
+    font-size: larger;
+    font-weight: 700;
+    font-style:inherit;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+
+    
+  }
+  
+  .black {
+    display: flex;
+    flex-direction: column; // Stack the lights vertically
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .red, .yellow, .green {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    opacity: 0.2;  // Default to a dimmed look when inactive
+    transition: opacity 0.5s ease;
+  }
+
+  .red.active {
+    opacity: 1;  // Full opacity when active
+  }
+
+  .green.active {
+    opacity: 1;  // Full opacity when active
+  }
+
+  .yellow {
+    background-color: rgb(255, 255, 3);
+  }
+
+  .red {
+    background-color: rgb(207, 0, 0);
+  }
+
+  .green {
+    background-color: rgb(2, 211, 2);
+  }
+  
+
+  .black {
+    display: flex;
+    flex-direction: column; // Stack the lights vertically
+    align-items: center;
+    justify-content: center;
+  }
+
+  .red, .yellow, .green {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    opacity: 0.2;  // Default to a dimmed look when inactive
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .red.active, .yellow.active, .green.active {
+    opacity: 1;  // Full opacity when active
+    transform: scale(1.2); // Slightly enlarge the active light
+  }
+
+  .red:hover, .yellow:hover, .green:hover {
+    transform: scale(1.1); // Slightly enlarge on hover
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); // Add a glowing effect
+  }
+
+  .red {
+    background-color: rgb(207, 0, 0);
+  }
+
+  .yellow {
+    background-color: rgb(255, 255, 3);
+  }
+
+  .green {
+    background-color: rgb(2, 211, 2);
+  }
+
+  .red.active {
+    animation: pulse-red 2s infinite;
+  }
+
+  .yellow.active {
+    animation: pulse-yellow 2s infinite;
+  }
+
+  .green.active {
+    animation: pulse-green 2s infinite;
+  }
+
+  @keyframes pulse-red {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(207, 0, 0, 0.5), 0 0 20px rgba(207, 0, 0, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(207, 0, 0, 0.7), 0 0 30px rgba(207, 0, 0, 0.7);
+    }
+  }
+
+  @keyframes pulse-yellow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(255, 255, 3, 0.5), 0 0 20px rgba(255, 255, 3, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 255, 3, 0.7), 0 0 30px rgba(255, 255, 3, 0.7);
+    }
+  }
+  &.override-active {
+    background-color: #ff0000a6; // Change the background to red (indicating an emergency)
+    color: white; // Change text color to white
+    animation: flash 0.5s infinite; // Add a flashing effect
+  }
+
+  @keyframes flash {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .override-active .box {
+    border-color: white; // Change box borders to white
+  }
+
+  .override-active button {
+    background-color: black; // Change button background to black
+    color: white; // Change button text color to white
+  }
+}
+
+  @keyframes pulse-green {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(2, 211, 2, 0.5), 0 0 20px rgba(2, 211, 2, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(2, 211, 2, 0.7), 0 0 30px rgba(2, 211, 2, 0.7);
+    }
+  }
+
+
+
+  
+
